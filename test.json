@@ -1,0 +1,5 @@
+[
+  { "tripId": { "$oid": "66f282db54b0fc5543d87b55" } },
+  { "tripId": { "$oid": "66f282db54b0fc5543d87b56" } },
+  { "tripId": { "$oid": "66f282db54b0fc5543d87b57" } }
+]
