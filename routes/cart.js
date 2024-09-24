@@ -7,18 +7,16 @@ const Trip = require("../models/trips");
 const Booking = require("../models/bookings");
 
 router.get("/", async (req, res) => {
-  const allCart = await Cart.find().populate("tripId");
-  res.json({ result: true, allCart });
+  const carts = await Cart.find().populate("tripId");
+  res.json({ result: true, carts });
 });
 
 router.delete("/delete", async (req, res) => {
   const { id } = req.body;
 
-  const allCart = await Cart.find({ tripId: id }).populate("tripId");
-  console.log(allCart);
-  //   const toDelete = await Cart.find({})
+  await Cart.deleteOne({ tripId: id });
 
-  res.json({ wip: "wip" });
+  res.json({ result: true });
 });
 
 router.post("/add-to-cart", async (req, res) => {
