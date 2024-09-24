@@ -8,7 +8,7 @@ const Booking = require("../models/bookings");
 
 router.get("/", async (req, res) => {
   const carts = await Cart.find().populate("tripId");
-  res.json({ result: true, carts });
+  return res.json({ result: true, carts });
 });
 
 router.delete("/delete", async (req, res) => {
@@ -16,7 +16,7 @@ router.delete("/delete", async (req, res) => {
 
   await Cart.deleteOne({ tripId: id });
 
-  res.json({ result: true });
+  return res.json({ result: true });
 });
 
 router.post("/add-to-cart", async (req, res) => {
