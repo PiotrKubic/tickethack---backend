@@ -8,7 +8,7 @@ const Booking = require("../models/bookings");
 
 router.get("/", async (req, res) => {
   const carts = await Cart.find().populate("tripId");
-  if (carts.lenght === 0)
+  if (carts.length === 0)
     return res.json({ result: false, message: "Nothing in cart" });
   return res.json({ result: true, carts });
 });
