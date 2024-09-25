@@ -3,7 +3,9 @@ const router = express.Router();
 const moment = require("moment");
 const Trip = require("../models/trips");
 
-router.post("/", async (req, res) => {
+const { checkBody } = require("../middleware/checkBody");
+
+router.post("/", checkBody, async (req, res) => {
   const { departure, arrival } = req.body;
   const date = moment.utc(req.body.date, "YYYY-MM-DD");
   let trips = await Trip.find({
